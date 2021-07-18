@@ -1,8 +1,6 @@
 pipeline {
   environment {
     username = 'vipulrastogi'
-    githubCredId = 'github-java-app'
-    githuburl = 'https://github.com/vipulra/NAGP-DevOps.git'
   }
   agent any
 
@@ -15,7 +13,7 @@ pipeline {
     stage('Build') {
       steps {
         // Get some code from a GitHub repository
-        git credentialsId: '${githubCredId}', url: '${username}'
+        git credentialsId: 'github-java-app', url: 'https://github.com/vipulra/NAGP-DevOps.git'
 
         // To run Maven on a Windows agent, use
         bat "mvn clean install"
